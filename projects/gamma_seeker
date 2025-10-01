@@ -1,0 +1,7 @@
+# Spot Robot Radiation Seeker
+
+- Platform: Boston Dynamics Spot  
+- Sensors: Compton gamma detector (M400), 3D LiDAR, depth cameras  
+- Software: ROS 2 (Humble), custom behaviors, gesture recognition  
+
+![Spot with detector](../images/spot_gamma.jpg)

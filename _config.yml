@@ -1,7 +1,18 @@
-remote_theme: pages-themes/tactile@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+# remote_theme: pages-themes/tactile@v0.2.0
+# plugins:
+# - jekyll-remote-theme # add this line to the plugins list if you already have one
 
+theme: jekyll-theme-tactile
+title: "Kevin Torres"
+description: "Engineering Projects & Research"
 
-title: [The title of your site]
-description: [A short description of your site's purpose]
+# Optional: if you want navigation defined here
+nav:
+  - name: Home
+    link: /
+  - name: About Me
+    link: /about/
+  - name: Resume
+    link: /resume/
+  - name: Contact
+    link: /contact/
