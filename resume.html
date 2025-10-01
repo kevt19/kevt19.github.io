@@ -8,22 +8,28 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">Kevin Torres</div>
+      <div class="logo"><a href="index.html">Kevin Torres</a></div>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="resume.html" class="active">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="about.html" class="nav-item">About Me</a></li>
+        <li><a href="resume.html" class="nav-item active">Resume</a></li>
+        <li><a href="contact.html" class="nav-item">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>Resume</h1>
-      <p><a href="resume.pdf" target="_blank">Download PDF</a></p>
-      <p>Key skills: ROS 2, radiation detection, embedded systems, robotics design...</p>
-    </section>
+  <section class="hero">
+    <h1 class="hero-title">Resume</h1>
+    <p class="hero-subtitle">Experience in robotics, radiation detection, and embedded systems</p>
+  </section>
+
+  <main class="content">
+    <p><a href="resume.pdf" target="_blank">Download my resume (PDF)</a></p>
+    <ul>
+      <li>ROS 2 development</li>
+      <li>Robotics controls and perception</li>
+      <li>Radiation detection and Compton imaging</li>
+    </ul>
   </main>
 
   <footer>

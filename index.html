@@ -6,33 +6,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Navbar -->
   <header>
     <nav class="navbar">
-      <div class="logo">Kevin Torres</div>
+      <div class="logo"><a href="index.html">Kevin Torres</a></div>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="nav-item active">Home</a></li>
+        <li><a href="about.html" class="nav-item">About Me</a></li>
+        <li><a href="resume.html" class="nav-item">Resume</a></li>
+        <li><a href="contact.html" class="nav-item">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>Welcome to My Portfolio</h1>
-      <p>Showcasing my engineering projects in robotics, radiation detection, and embedded systems.</p>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-title">Welcome to My Portfolio</h1>
+    <p class="hero-subtitle">Engineering projects in robotics, radiation detection, and embedded systems</p>
+  </section>
 
+  <!-- Projects -->
+  <main>
     <section class="projects">
       <h2>Projects</h2>
 
       <!-- Project 1 -->
       <div class="project-card-horizontal">
-        <img src="images/test.png" alt="Project 1" class="project-img">
+        <img src="images/test.png" alt="Isotope Retrieval Project" class="project-img">
         <div class="project-info">
           <h3>Isotope Retrieval Project</h3>
-          <p>After gaining experience in a variety of areas in robotics, I worked on a project in the areas I found most engaging — retrieval and manipulation systems.</p>
+          <p>Robotics project focusing on retrieval and manipulation for isotope handling and automation.</p>
           <p class="date">September 23, 2022</p>
           <a href="projects/project1.html" class="btn">More project details →</a>
         </div>
@@ -40,10 +43,10 @@
 
       <!-- Project 2 -->
       <div class="project-card-horizontal">
-        <img src="images/placeholder2.jpg" alt="Project 2" class="project-img">
+        <img src="images/placeholder2.jpg" alt="DeliveryHelper Project" class="project-img">
         <div class="project-info">
           <h3>DeliveryHelper</h3>
-          <p>A robotic assistant for delivering packages for those who need assistance or have many packages to carry. Built during my Winter Project.</p>
+          <p>A robotic assistant for delivering packages, created during my Winter Project.</p>
           <p class="date">March 18, 2022</p>
           <a href="projects/project2.html" class="btn">More project details →</a>
         </div>
