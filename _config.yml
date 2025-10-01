@@ -1,12 +1,19 @@
-# remote_theme: pages-themes/tactile@v0.2.0
-# plugins:
-# - jekyll-remote-theme # add this line to the plugins list if you already have one
-
-theme: jekyll-theme-tactile
+# Site settings
 title: "Kevin Torres"
 description: "Engineering Projects & Research"
 
-# Optional: if you want navigation defined here
+# Disable theme (since you’re hand-coding your HTML + CSS)
+theme: null
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+
+# Permalink structure (enables pretty URLs)
+permalink: /:path/
+
+# Navigation (used for reference if you decide to make dynamic nav later)
 nav:
   - name: Home
     link: /
