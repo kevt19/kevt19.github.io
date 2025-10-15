@@ -1,4 +1,14 @@
-/* --- General Reset --- */
+/* === Global Color Palette === */
+:root {
+  --nav-blue: #0d1b2a;        /* Navbar */
+  --bg-main: #1b263b;         /* Page background */
+  --hero-blue: #415a77;       /* Hero section */
+  --accent-blue: #415a77;     /* Cards, accents, secondary backgrounds */
+  --title-link: #e0e1dd;      /* Main titles & links */
+  --text-white: #ffffff;      /* Regular text */
+}
+
+/* === Reset === */
 * {
   margin: 0;
   padding: 0;
@@ -9,23 +19,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* === Body === */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: var(--bg-main);
+  color: var(--text-white);
   line-height: 1.6;
   padding-top: 80px; /* offset for fixed navbar */
 }
 
-/* --- Navbar --- */
+/* === Navbar === */
 header {
-  position: fixed;        /* keeps it on top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #111;
-  z-index: 1000;          /* ensures it's above everything else */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: var(--nav-blue);
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 .navbar {
@@ -36,10 +47,15 @@ header {
 }
 
 .logo a {
-  color: #fff;
+  color: var(--title-link);
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.logo a:hover {
+  opacity: 0.8;
 }
 
 .nav-links {
@@ -49,85 +65,114 @@ header {
 }
 
 .nav-links a {
-  color: #fff;
+  color: var(--title-link);
   text-decoration: none;
   font-size: 1rem;
-  transition: color 0.3s;
+  transition: opacity 0.3s;
 }
 
 .nav-links a:hover,
 .nav-links .active {
-  color: #00adb5;
+  opacity: 0.8;
 }
 
-/* --- Hero Section --- */
+/* === Hero Section === */
 .hero {
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(to right, #00adb5, #007b83);
-  color: white;
+  background-color: var(--hero-blue);
+  color: var(--text-white);
 }
 
 .hero-title {
   font-size: 3rem;
   margin-bottom: 10px;
+  color: var(--title-link);
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
+  color: var(--text-white);
 }
 
-/* --- Projects Section --- */
+/* === Projects Section === */
 .projects {
   padding: 50px;
+  background-color: var(--bg-main);
 }
 
 .projects h2 {
   text-align: center;
   margin-bottom: 30px;
   font-size: 2rem;
-  color: #007b83;
+  color: var(--title-link);
 }
 
 .project-card-horizontal {
   display: flex;
-  background: white;
+  background: var(--accent-blue);
   margin: 20px 0;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card-horizontal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
 }
 
 .project-img {
   width: 250px;
   height: auto;
   object-fit: cover;
+  filter: brightness(0.9);
+  transition: filter 0.3s;
+}
+
+.project-card-horizontal:hover .project-img {
+  filter: brightness(1);
 }
 
 .project-info {
   padding: 20px;
+  color: var(--text-white);
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 12px;
-  background-color: #00adb5;
-  color: white;
+/* === Project Title Link === */
+.project-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: var(--title-link);
+}
+
+.project-link {
+  color: var(--title-link);
   text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+  display: inline-block;
 }
 
-.btn:hover {
-  background-color: #007b83;
+.project-link:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+  text-shadow: 0 0 6px rgba(240, 235, 216, 0.4);
 }
 
-/* --- Footer --- */
+.project-info p {
+  margin-top: 5px;
+  color: var(--text-white);
+}
+
+/* === Footer === */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #111;
-  color: white;
+  background-color: var(--accent-blue);
+  color: var(--text-white);
   margin-top: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
