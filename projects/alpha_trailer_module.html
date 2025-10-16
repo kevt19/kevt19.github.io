@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alpha Trailer Module | Kevin Torres</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="../index.html">Roboticist | Engineer | Student</a></div>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-item">Projects</a></li>
+        <li><a href="../about.html" class="nav-item">About Me</a></li>
+        <li><a href="../resume.html" class="nav-item">Resume</a></li>
+        <li><a href="../contact.html" class="nav-item">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero-title">Alpha Trailer Module</h1>
+    <p class="hero-subtitle">Air-proportional detector on a diff-drive robot for autonomous alpha detection</p>
+  </section>
+
+  <main class="container" style="padding: 42px 0;">
+    <figure style="text-align:center; margin-bottom: 24px;">
+      <img src="../images/trailer_module.jpg" alt="Alpha Trailer Module" style="max-width:100%; border-radius:12px;">
+      <figcaption style="color: var(--text-secondary); margin-top: 8px;">Trailer module with detector enclosure.</figcaption>
+    </figure>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Overview</h2>
+      <p style="color: var(--text-main);">
+        A tow-behind module housing an air-proportional detector, integrated with a differential-drive robot for autonomous area sweeps and hotspot detection of alpha-emitting materials.
+      </p>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Build Process</h2>
+      <ol class="project-steps">
+        <li><strong>Mechanical:</strong> Designed a stable, low-CG trailer; sealed detector enclosure with airflow path.</li>
+        <li><strong>Electronics:</strong> Signal conditioning, bias supply, and data acquisition to single-board computer.</li>
+        <li><strong>ROS Integration:</strong> Drivers for count rate; time-stamped messages; map overlays.</li>
+        <li><strong>Coverage Planner:</strong> Lane/spiral sweeps with adjustable dwell times.</li>
+        <li><strong>Hotspot Logic:</strong> Thresholds with temporal filtering to avoid false positives.</li>
+        <li><strong>Field Tests:</strong> Calibration passes; background subtraction; log & replay tooling.</li>
+      </ol>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Results</h2>
+      <ul class="project-results">
+        <li>Detected elevated alpha counts with clear spatial correlation.</li>
+        <li>Produced easy-to-read sweeps and hotspot markers for operators.</li>
+        <li>Trailer dynamics had minimal impact on base navigation after tuning.</li>
+      </ul>
+    </section>
+
+    <p><a class="project-link" href="../index.html">← Back to Projects</a></p>
+  </main>
+
+  <footer><p>© 2025 Kevin Torres</p></footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shadow Flask | Kevin Torres</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="../index.html">Roboticist | Engineer | Student</a></div>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-item">Projects</a></li>
+        <li><a href="../about.html" class="nav-item">About Me</a></li>
+        <li><a href="../resume.html" class="nav-item">Resume</a></li>
+        <li><a href="../contact.html" class="nav-item">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero-title">Shadow Flask</h1>
+    <p class="hero-subtitle">Raspberry Pi + USB camera streaming over a private Tailscale network</p>
+  </section>
+
+  <main class="container" style="padding: 42px 0;">
+    <figure style="text-align:center; margin-bottom: 24px;">
+      <img src="../images/placeholder2.jpg" alt="Shadow Flask" style="max-width:100%; border-radius:12px;">
+      <figcaption style="color: var(--text-secondary); margin-top: 8px;">Lightweight Flask video streaming accessible on mobile.</figcaption>
+    </figure>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Overview</h2>
+      <p style="color: var(--text-main);">
+        A minimal Flask app on Raspberry Pi that streams USB-camera video over a secure, peer-to-peer Tailscale network—viewable from any authorized device’s browser.
+      </p>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Build Process</h2>
+      <ol class="project-steps">
+        <li><strong>Pi Setup:</strong> OS image, camera sanity checks, virtualenv for Python deps.</li>
+        <li><strong>Flask App:</strong> MJPEG endpoint; adjustable resolution/FPS; basic auth.</li>
+        <li><strong>Serviceization:</strong> Systemd unit for auto-start and restart on failure.</li>
+        <li><strong>Tailscale:</strong> Join private mesh; ACLs; device tags for access control.</li>
+        <li><strong>Mobile UX:</strong> Simple HTML page with inline video and latency notes.</li>
+        <li><strong>Logging:</strong> Rotating file logs for uptime/health checks.</li>
+      </ol>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Results</h2>
+      <ul class="project-results">
+        <li>Reliable sub-second preview in local networks; secure remote access via Tailscale.</li>
+        <li>Low resource usage; boots straight into a ready stream.</li>
+        <li>Easy extension point for capture, screenshots, and alerts.</li>
+      </ul>
+    </section>
+
+    <p><a class="project-link" href="../index.html">← Back to Projects</a></p>
+  </main>
+
+  <footer><p>© 2025 Kevin Torres</p></footer>
+</body>
+</html>

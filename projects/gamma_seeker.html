@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gamma Seeker | Kevin Torres</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="../index.html">Roboticist | Engineer | Student</a></div>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-item">Projects</a></li>
+        <li><a href="../about.html" class="nav-item">About Me</a></li>
+        <li><a href="../resume.html" class="nav-item">Resume</a></li>
+        <li><a href="../contact.html" class="nav-item">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero-title">Gamma Seeker</h1>
+    <p class="hero-subtitle">Spot + H3D Compton camera for autonomous gamma-source localization</p>
+  </section>
+
+  <main class="container" style="padding: 42px 0;">
+    <figure style="text-align:center; margin-bottom: 24px;">
+      <img src="../images/cowboy_spot.png" alt="Gamma Seeker" style="max-width:100%; border-radius:12px;">
+      <figcaption style="color: var(--text-secondary); margin-top: 8px;">Field integration with Boston Dynamics Spot.</figcaption>
+    </figure>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Overview</h2>
+      <p style="color: var(--text-main);">
+        Integrated an H3D M400 Compton camera with Boston Dynamics Spot to autonomously localize a gamma source.
+        The system fuses Compton imaging with LiDAR-based mapping and navigates to areas of highest likelihood.
+      </p>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Build Process</h2>
+      <ol class="project-steps">
+        <li><strong>Hardware Mounting & Power:</strong> Designed/secured a vibration-aware mount; provided isolated power and cable management.</li>
+        <li><strong>Networking:</strong> Unified time-sync and low-latency comms between Spot and the Compton camera host.</li>
+        <li><strong>ROS 2 Drivers:</strong> Wrote/modified nodes to acquire list-mode/processed counts and publish Compton cones.</li>
+        <li><strong>Sensor Fusion:</strong> Registered Compton cones into the LiDAR frame; accumulated likelihood on a 2D/3D grid.</li>
+        <li><strong>Autonomy Loop:</strong> Selected goal cells with highest expected information gain; iterated measure → move → update.</li>
+        <li><strong>Field Validation:</strong> Ran controlled-source trials; logged rates, dwell times, and trajectory data.</li>
+      </ol>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Results</h2>
+      <ul class="project-results">
+        <li>Consistently converged near the source with a clear likelihood peak.</li>
+        <li>Operated fully on-robot with repeatable runs and logged metrics.</li>
+        <li>Produced intuitive heatmaps for operator review and after-action analysis.</li>
+      </ul>
+    </section>
+
+    <p><a class="project-link" href="../index.html">← Back to Projects</a></p>
+  </main>
+
+  <footer><p>© 2025 Kevin Torres</p></footer>
+</body>
+</html>

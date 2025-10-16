@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cat Tracker | Kevin Torres</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="../index.html">Roboticist | Engineer | Student</a></div>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-item">Projects</a></li>
+        <li><a href="../about.html" class="nav-item">About Me</a></li>
+        <li><a href="../resume.html" class="nav-item">Resume</a></li>
+        <li><a href="../contact.html" class="nav-item">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero-title">Cat Tracker</h1>
+    <p class="hero-subtitle">Real-time cat detection & tracking with remote laser control</p>
+  </section>
+
+  <main class="container" style="padding: 42px 0;">
+    <figure style="text-align:center; margin-bottom: 24px;">
+      <img src="../images/placeholder2.jpg" alt="Cat Tracker" style="max-width:100%; border-radius:12px;">
+      <figcaption style="color: var(--text-secondary); margin-top: 8px;">Cat Tracker built on top of Shadow Flask streaming.</figcaption>
+    </figure>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Overview</h2>
+      <p style="color: var(--text-main);">
+        Cat Tracker runs a lightweight vision model to find and track a cat in view. A small pan/tilt laser module can
+        “play” within predefined safe zones via a web UI, all on top of the Shadow Flask video stream.
+      </p>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Build Process</h2>
+      <ol class="project-steps">
+        <li><strong>Model & Pipeline:</strong> Choose a fast model (e.g., YOLO-nano/YOLOv8n); resize and run inference on a Pi or small GPU device.</li>
+        <li><strong>Tracking:</strong> Centroid/Kalman tracker for smooth motion and short occlusion handling.</li>
+        <li><strong>Zones & Safety:</strong> Define valid “play area,” clamp angles, and add an emergency stop.</li>
+        <li><strong>Laser Control:</strong> PWM control for servos/galvos; Flask endpoints to command positions.</li>
+        <li><strong>Web UI:</strong> Stream preview with “chase” toggle and manual joystick control.</li>
+        <li><strong>Metrics:</strong> FPS, detection confidence, and laser position logging.</li>
+      </ol>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Results</h2>
+      <ul class="project-results">
+        <li>Reliable cat detections with smooth retargeting at interactive frame rates.</li>
+        <li>Remote “playtime” from phone or laptop via a simple web interface.</li>
+        <li>Safety zones prevent shining in restricted directions or at sensitive areas.</li>
+      </ul>
+    </section>
+
+    <p><a class="project-link" href="../index.html">← Back to Projects</a></p>
+  </main>
+
+  <footer><p>© 2025 Kevin Torres</p></footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spyrrax | Kevin Torres</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="../index.html">Roboticist | Engineer | Student</a></div>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-item">Projects</a></li>
+        <li><a href="../about.html" class="nav-item">About Me</a></li>
+        <li><a href="../resume.html" class="nav-item">Resume</a></li>
+        <li><a href="../contact.html" class="nav-item">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero-title">Spyrrax</h1>
+    <p class="hero-subtitle">A scratch-built 4-legged spider robot</p>
+  </section>
+
+  <main class="container" style="padding: 42px 0;">
+    <figure style="text-align:center; margin-bottom: 24px;">
+      <img src="../images/spyrrax.jpg" alt="Spyrrax" style="max-width:100%; border-radius:12px;">
+      <figcaption style="color: var(--text-secondary); margin-top: 8px;">Prototype chassis and early gait testing.</figcaption>
+    </figure>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Overview</h2>
+      <p style="color: var(--text-main);">
+        Spyrrax is a custom 4-legged platform exploring legged locomotion, joint control, and gait generation on a budget-friendly stack.
+      </p>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Build Process</h2>
+      <ol class="project-steps">
+        <li><strong>Mechanics:</strong> CAD design for hip/knee joints; 3D-printed links; hardware selection for torque/weight tradeoffs.</li>
+        <li><strong>Actuation:</strong> Hobby servos/Dynamixels (as available); bracket stiffness and horn alignment for repeatability.</li>
+        <li><strong>Electronics:</strong> Controller (e.g., Teensy/ESP32), 2S/3S battery, buck/boost regulation, wiring harness.</li>
+        <li><strong>Firmware:</strong> Joint angle commands, trajectory interpolation, and safety stops.</li>
+        <li><strong>Gait Control:</strong> Tripod/crawl gaits; phase offsets; simple body stabilization.</li>
+        <li><strong>Tuning:</strong> PID gains and mechanical backlash compensation; thermal/power checks.</li>
+      </ol>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 class="section-title">Results</h2>
+      <ul class="project-results">
+        <li>Stable crawl and basic turning maneuvers over flat terrain.</li>
+        <li>Modular design enables quick leg/servo swaps and future sensors.</li>
+        <li>Clear path to improved speed via higher-torque actuators and state estimation.</li>
+      </ul>
+    </section>
+
+    <p><a class="project-link" href="../index.html">← Back to Projects</a></p>
+  </main>
+
+  <footer><p>© 2025 Kevin Torres</p></footer>
+</body>
+</html>
