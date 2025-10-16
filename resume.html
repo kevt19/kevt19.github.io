@@ -5,19 +5,38 @@
   <title>Resume | Kevin Torres</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Layout to make the PDF area fill the screen beneath the header */
+    /* ---------- Tunable parameters ---------- */
+    :root {
+      /* Horizontal padding (left/right) around the resume container */
+      --resume-pad-x: 56px;
+
+      /* Vertical padding (top/bottom) around the resume container */
+      --resume-pad-y: 20px;
+
+      /* Max content width for the centered resume area */
+      --resume-max-width: 1100px;
+
+      /* Optional: rounded corners + subtle border/shadow for the frame */
+      --resume-radius: 12px;
+      --resume-border: 1px solid rgba(193,154,107,0.28);
+      --resume-shadow: 0 6px 28px rgba(0,0,0,0.25);
+      --toolbar-bg: var(--nav-bg, #0d0d0f);
+      --toolbar-border: 1px solid rgba(193,154,107,0.25);
+    }
+
     html, body { height: 100%; }
     body.page-resume { min-height: 100vh; display: flex; flex-direction: column; }
 
     .pdf-main { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+
     .pdf-toolbar {
-      position: sticky; top: 0;
+      position: sticky; top: 0; z-index: 10;
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
       padding: 10px 16px;
-      background: var(--nav-bg, #0d0d0f);
-      border-bottom: 1px solid rgba(193,154,107,0.25);
-      z-index: 10;
+      background: var(--toolbar-bg);
+      border-bottom: var(--toolbar-border);
     }
+
     .pdf-toolbar .left,
     .pdf-toolbar .right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
@@ -30,12 +49,56 @@
       text-decoration: none;
       font-weight: 500;
       transition: transform 120ms ease, border-color 120ms ease;
+      white-space: nowrap;
     }
     .pdf-link-btn:hover { transform: translateY(-1px); border-color: rgba(193,154,107,0.6); }
 
-    .pdf-container { flex: 1; min-height: 0; }
-    .pdf-frame { width: 100%; height: 100%; border: 0; }
-    .pdf-fallback { padding: 16px; color: var(--text-main, #e6e6e6); }
+    /* Centered content area with asymmetric padding */
+    .pdf-stage {
+      display: flex; justify-content: center;
+      padding: var(--resume-pad-y) var(--resume-pad-x);
+      flex: 1; min-height: 0;
+    }
+
+    .pdf-wrap {
+      width: 100%;
+      max-width: var(--resume-max-width);
+      display: flex; flex-direction: column; gap: 14px;
+      min-height: 0;
+    }
+
+    /* The framed viewer (does not span the whole page width) */
+    .pdf-frame-wrap {
+      flex: 1; min-height: 0;
+      border: var(--resume-border);
+      border-radius: var(--resume-radius);
+      overflow: hidden;
+      box-shadow: var(--resume-shadow);
+      background: #111214;
+    }
+
+    /* Tall, scrollable iframe while keeping margins visible around it */
+    .pdf-frame {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 180px); /* leaves room for navbar, toolbar, footer */
+      border: 0;
+    }
+
+    .pdf-fallback {
+      padding: 16px;
+      color: var(--text-main, #e6e6e6);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 640px) {
+      :root {
+        --resume-pad-x: 16px;
+        --resume-pad-y: 12px;
+        --resume-max-width: 100%;
+      }
+      .pdf-frame { height: calc(100vh - 200px); }
+    }
   </style>
 </head>
 <body class="page-resume">
@@ -53,36 +116,35 @@
   </header>
 
   <main class="pdf-main">
-    <!-- Simple toolbar for open/download -->
+    <!-- Toolbar: open/download controls -->
     <div class="pdf-toolbar">
       <div class="left">
         <strong style="color: var(--text-main, #e6e6e6);">Kevin Torres — Resume (PDF)</strong>
       </div>
       <div class="right">
-        <a class="pdf-link-btn" href="resume_files/kevin_torres_resume.pdf" target="_blank" rel="noopener">
-          Open in new tab
-        </a>
-        <a class="pdf-link-btn" href="resume_files/kevin_torres_resume.pdf" download>
-          Download PDF
-        </a>
+        <a class="pdf-link-btn" href="resume_files/kevin_torres_resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        <a class="pdf-link-btn" href="resume_files/kevin_torres_resume.pdf" download>Download PDF</a>
       </div>
     </div>
 
-    <!-- Scrollable PDF viewer -->
-    <div class="pdf-container">
-      <!-- IFRAME approach with built-in scrolling -->
-      <iframe
-        class="pdf-frame"
-        src="resume_files/kevin_torres_resume.pdf#view=FitH&toolbar=1&navpanes=1"
-        title="Kevin Torres Resume PDF"
-      ></iframe>
+    <!-- Centered content with asymmetric padding -->
+    <div class="pdf-stage">
+      <div class="pdf-wrap">
+        <div class="pdf-frame-wrap">
+          <iframe
+            class="pdf-frame"
+            src="resume_files/kevin_torres_resume.pdf#view=FitH&toolbar=1&navpanes=1"
+            title="Kevin Torres Resume PDF"
+          ></iframe>
+        </div>
 
-      <!-- Fallback for browsers without inline PDF support -->
-      <div class="pdf-fallback">
-        Your browser can’t display PDFs inline.
-        <a class="project-link" href="resume_files/kevin_torres_resume.pdf" target="_blank" rel="noopener">Open the PDF</a>
-        or
-        <a class="project-link" href="resume_files/kevin_torres_resume.pdf" download>download it</a>.
+        <!-- Fallback for browsers without inline PDF support -->
+        <div class="pdf-fallback">
+          Your browser can’t display PDFs inline.
+          <a class="project-link" href="resume_files/kevin_torres_resume.pdf" target="_blank" rel="noopener">Open the PDF</a>
+          or
+          <a class="project-link" href="resume_files/kevin_torres_resume.pdf" download>download it</a>.
+        </div>
       </div>
     </div>
   </main>
