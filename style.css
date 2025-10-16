@@ -1,13 +1,12 @@
 /* === Global Color Palette === */
 :root {
-  --nav-blue: #0d1b2a;        /* Navbar */
-  --bg-main: #1b263b;         /* Page background */
-  --hero-blue: #415a77;       /* Hero section */
-  --accent-blue: #415a77;     /* Cards, accents, secondary backgrounds */
-  --title-link: #e0e1dd;      /* Main titles & links */
+  --nav-blue: #0a0908;        /* Navbar */
+  --bg-main: #eae0d5;         /* Page background */
+  --hero-blue: #22333b;       /* Hero section */
+  --accent-blue: #5e503f;     /* Cards, accents, secondary backgrounds */
+  --title-link: #ef8354;      /* Main titles & links */
   --text-white: #ffffff;      /* Regular text */
 }
-
 /* === Reset === */
 * {
   margin: 0;
