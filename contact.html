@@ -1,32 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Contact | Kevin Torres</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Navbar -->
   <header>
     <nav class="navbar">
-      <div class="logo"><a href="index.html">Kevin Torres</a></div>
+      <div class="logo"><a href="index.html">Roboticist | Engineer | Student</a></div>
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-item">Home</a></li>
+        <li><a href="index.html" class="nav-item">Projects</a></li>
         <li><a href="about.html" class="nav-item">About Me</a></li>
         <li><a href="resume.html" class="nav-item">Resume</a></li>
-        <li><a href="contact.html" class="nav-item active">Contact</a></li>
+        <li><a href="contact.html" class="nav-item active" aria-current="page">Contact</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
-    <h1 class="hero-title">Contact</h1>
-    <p class="hero-subtitle">Get in touch with me</p>
+    <h1 class="hero-title">Get in Touch</h1>
+    <p class="hero-subtitle">Open to roles in robotics, autonomy, and field systems</p>
   </section>
 
-  <main class="content">
-    <p>Email: <a href="mailto:kevin@example.com">kevin@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourname" target="_blank">linkedin.com/in/yourname</a></p>
+  <!-- Content -->
+  <main class="container" style="padding: 42px 0;">
+    <section style="margin-bottom: 28px;">
+      <h2 style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">Email</h2>
+      <p style="color: var(--text-main);">
+        <a class="project-link" href="mailto:kevin.torres@example.com">kevin.torres@example.com</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">Links</h2>
+      <ul style="color: var(--text-main); line-height: 1.9; margin-left: 18px;">
+        <li><a class="project-link" href="https://github.com/kevt19" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a class="project-link" href="https://www.linkedin.com/in/kevin-torres" target="_blank" rel="noopener">LinkedIn</a></li>
+        <!-- Add more as needed -->
+      </ul>
+    </section>
+
+    <section>
+      <h2 style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">Quick Message</h2>
+      <!-- Static form markup; wire up to your backend or service (Netlify Forms, Formspree, etc.) -->
+      <form style="max-width: 720px;">
+        <div style="display: grid; gap: 12px;">
+          <input type="text" name="name" placeholder="Your Name" required
+                 style="padding: 12px; background: var(--nav-bg); border: 1px solid rgba(193,154,107,0.14); color: var(--text-main); border-radius: 8px;" />
+          <input type="email" name="email" placeholder="Your Email" required
+                 style="padding: 12px; background: var(--nav-bg); border: 1px solid rgba(193,154,107,0.14); color: var(--text-main); border-radius: 8px;" />
+          <textarea name="message" placeholder="Your Message" rows="6" required
+                    style="padding: 12px; background: var(--nav-bg); border: 1px solid rgba(193,154,107,0.14); color: var(--text-main); border-radius: 8px;"></textarea>
+          <button type="submit"
+                  style="padding: 12px 16px; border-radius: 10px; border: 1px solid rgba(193,154,107,0.3); background: var(--nav-bg); color: var(--accent); cursor: pointer;">
+            Send
+          </button>
+        </div>
+      </form>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">
+        (This is a static form—connect it to your backend or a form service to receive messages.)
+      </p>
+    </section>
   </main>
 
   <footer>

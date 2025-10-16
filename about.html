@@ -1,30 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>About Me | Kevin Torres</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>About | Kevin Torres</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Navbar -->
   <header>
     <nav class="navbar">
-      <div class="logo"><a href="index.html">Kevin Torres</a></div>
+      <div class="logo"><a href="index.html">Roboticist | Engineer | Student</a></div>
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-item">Home</a></li>
-        <li><a href="about.html" class="nav-item active">About Me</a></li>
+        <li><a href="index.html" class="nav-item">Projects</a></li>
+        <li><a href="about.html" class="nav-item active" aria-current="page">About Me</a></li>
         <li><a href="resume.html" class="nav-item">Resume</a></li>
         <li><a href="contact.html" class="nav-item">Contact</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <h1 class="hero-title">About Me</h1>
-    <p class="hero-subtitle">Robotics engineer specializing in radiation detection and embedded systems</p>
+    <p class="hero-subtitle">UT Austin M.S. in Robotics • B.S. in Physics • Field-tested robotic systems</p>
   </section>
 
-  <main class="content">
-    <p>I’m Kevin, an engineer working at the intersection of robotics, radiation detection, and embedded systems. I design autonomous systems that explore, detect, and solve real-world problems.</p>
+  <!-- Content -->
+  <main class="container" style="padding: 42px 0;">
+    <section style="margin-bottom: 28px;">
+      <h2 style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">
+        Who I Am
+      </h2>
+      <p style="color: var(--text-main);">
+        I build robust, real-world robotics—bridging autonomy, embedded systems, and perception.
+        My recent work includes integrating a Compton camera with a Boston Dynamics Spot for autonomous
+        gamma-source localization and deploying inspection robots in industrial environments.
+      </p>
+    </section>
+
+    <section style="margin-bottom: 28px;">
+      <h2 style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">
+        Focus Areas
+      </h2>
+      <ul style="color: var(--text-main); line-height: 1.8; margin-left: 18px;">
+        <li>ROS 1/2, behavior trees, multi-sensor fusion, autonomy</li>
+        <li>Embedded systems, networking, real-time data pipelines</li>
+        <li>Perception & ML: detection, pose, and mapping</li>
+        <li>Field-hardened software/hardware for safety-critical tasks</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">
+        Tools & Tech I Use
+      </h2>
+      <p style="color: var(--text-main);">
+        C++ • Python • ROS Noetic/Humble • Nav2 • OpenCV • PyTorch •
+        Docker • Linux • Git • LIDAR/Depth Cameras • H3D M400
+      </p>
+    </section>
   </main>
 
   <footer>
