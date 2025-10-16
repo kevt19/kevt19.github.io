@@ -1,234 +1,237 @@
 /* === Tactical UI Fonts === */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap');
 
-/* === Global Color Palette === */
+/* === Global Color Palette & Layout Vars === */
 :root {
-  --bg-main: #0b0c10;          /* Main background - near black */
-  --nav-bg: #1f2833;           /* Navbar and cards */
-  --hero-bg: #232b33;          /* Hero panel */
-  --accent: #c19a6b;           /* Tactical amber accent */
-  --accent-soft: #86bbd8;      /* Subtle teal tech glow */
-  --text-main: #f0f0f0;        /* Main text */
-  --text-secondary: #c5c6c7;   /* Secondary muted text */
-}
+  --bg-main: #0b0c10;
+  --nav-bg: #1f2833;
+  --hero-bg: #232b33;
+  --accent: #c19a6b;
+  --accent-soft: #86bbd8;
+  --text-main: #f0f0f0;
+  --text-secondary: #c5c6c7;
 
+  --header-h: 72px;
+  --container-w: 1300px;   /* page content width */
+  --skew: 150px;            /* right-edge angle */
+  --card-h: 100px;         /* <<< PROJECT CARD HEIGHT (desktop) */
+}
 /* === Reset === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; background-color: var(--bg-main); }
 
-html {
-  scroll-behavior: smooth;
-  background-color: var(--bg-main);
-}
-
-/* === Body === */
 body {
   font-family: "Rajdhani", "Share Tech Mono", sans-serif;
   background-color: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
-  padding-top: 80px; /* offset for fixed navbar */
+  padding-top: var(--header-h);
   letter-spacing: 0.4px;
 }
 
-/* === Navbar === */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+/* Focus-visible for keyboard users */
+:focus-visible { outline: 2px dashed var(--accent-soft); outline-offset: 3px; }
+
+/* Skip link */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent); color: #000; padding: 8px 12px; z-index: 2000;
+}
+.skip-link:focus { left: 12px; top: 12px; border-radius: 6px; }
+
+/* === Container === */
+.container { max-width: var(--container-w); margin: 0 auto; padding: 0 24px; }
+
+/* === Navbar (full-width, edges aligned) === */
+.site-header {
+  position: fixed; top: 0; left: 0; width: 100%;
   background-color: var(--nav-bg);
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-  border-bottom: 1px solid rgba(97, 97, 97, 0.3);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  border-bottom: 1px solid rgba(97,97,97,0.3);
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 60px;
+  width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 60px;           /* controls distance from edges */
+  min-height: var(--header-h);
 }
 
 .logo a {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  transition: color 0.3s;
+  color: var(--accent); text-decoration: none;
+  font-size: 1.35rem; font-weight: 600; letter-spacing: 2px;
+  transition: color 0.25s ease;
 }
-
-.logo a:hover {
-  color: var(--accent-soft);
-}
+.logo a:hover { color: var(--accent-soft); }
 
 .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 35px;
+  list-style: none; display: flex; gap: 32px; flex-wrap: nowrap;
 }
-
 .nav-links a {
-  color: var(--text-main);
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s;
-  letter-spacing: 1px;
+  color: var(--text-main); text-decoration: none; font-size: 1rem;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  letter-spacing: 1px; line-height: 1; padding: 6px 2px; border-radius: 4px;
 }
-
 .nav-links a:hover,
-.nav-links .active {
+.nav-links .active,
+.nav-links a[aria-current="page"] {
   color: var(--accent);
+  text-shadow: 0 0 8px rgba(193,154,107,0.35);
 }
 
 /* === Hero Section === */
 .hero {
-  text-align: center;
-  padding: 120px 20px 100px 20px;
+  text-align: center; padding: 96px 20px 72px;
   background-color: var(--hero-bg);
-  position: relative;
-  overflow: hidden;
-  border-bottom: 2px solid rgba(97, 97, 97, 0.3);
+  position: relative; overflow: hidden;
+  border-bottom: 2px solid rgba(97,97,97,0.3);
 }
-
-/* Subtle digital circles overlay */
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(rgba(102, 252, 241, 0.07), transparent 70%);
-  z-index: 0;
-  filter: blur(2px);
+.hero::before, .hero::after {
+  content: ""; position: absolute; border-radius: 50%;
+  background: radial-gradient(rgba(102,252,241,0.07), transparent 70%);
+  z-index: 0; filter: blur(2px);
 }
-.hero::before {
-  width: 600px;
-  height: 600px;
-  top: -200px;
-  left: -200px;
-}
-.hero::after {
-  width: 350px;
-  height: 350px;
-  bottom: -100px;
-  right: -100px;
-}
+.hero::before { width: 600px; height: 600px; top: -200px; left: -200px; }
+.hero::after  { width: 350px; height: 350px; bottom: -100px; right: -100px; }
 
 .hero-title {
   font-family: "Rajdhani", sans-serif;
-  font-size: 3.5rem;
-  margin-bottom: 10px;
-  color: var(--accent);
-  text-shadow: 0 0 10px rgba(193, 154, 107, 0.4);
-  position: relative;
-  z-index: 1;
-  text-transform: uppercase;
+  font-size: clamp(2.2rem, 5vw, 3.3rem);
+  margin-bottom: 8px; color: var(--accent);
+  text-shadow: 0 0 10px rgba(193,154,107,0.4);
+  position: relative; z-index: 1; text-transform: uppercase;
 }
-
 .hero-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
   color: var(--text-secondary);
-  position: relative;
-  z-index: 1;
+  position: relative; z-index: 1;
 }
 
 /* === Projects Section === */
-.projects {
-  padding: 60px;
-  background-color: var(--bg-main);
-}
-
+.projects { padding: 44px 0 0; background-color: var(--bg-main); }
 .projects h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.2rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  font-family: "Rajdhani", sans-serif;
-  letter-spacing: 2px;
+  text-align: center; margin: 0 auto 24px;
+  font-size: clamp(1.6rem, 3.2vw, 2rem);
+  color: var(--accent); text-transform: uppercase; letter-spacing: 2px;
 }
 
-/* --- Angled Project Cards --- */
+/* === Trapezoid Project Cards (balanced + height control) === */
 .project-card-horizontal {
+  position: relative;
   display: flex;
+  align-items: stretch;               /* ensure full height alignment */
   background: var(--nav-bg);
-  margin: 40px 0;
-  border-radius: 8px;
+
+  max-width: calc(var(--container-w) - 40px);
+  margin: 22px auto;
+
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(193, 154, 107, 0.15);
+  box-shadow: 0 3px 16px rgba(0,0,0,0.56);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  border: 1px solid rgba(193,154,107,0.14);
 
-  /* angled shape */
-  clip-path: polygon(0 0, 100% 2%, 100% 98%, 0 100%);
+  /* Card height is now controlled here */
+  min-height: var(--card-h);
+
+  /* Trapezoid: left vertical, right edge angled up */
+  clip-path: polygon(0 0, 100% 0, calc(100% - var(--skew)) 100%, 0 100%);
 }
-
 .project-card-horizontal:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 25px rgba(102, 252, 241, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(102,252,241,0.14);
 }
 
+/* Image sized to card height */
 .project-img {
-  width: 250px;
-  height: auto;
+  width: 230px;
+  height: var(--card-h);              /* <<< ties image to card height */
   object-fit: cover;
-  filter: brightness(0.85);
-  transition: filter 0.3s;
-  border-right: 2px solid rgba(193, 154, 107, 0.15);
+  filter: brightness(0.88);
+  transition: filter 0.22s ease;
+  border-right: 2px solid rgba(193,154,107,0.15);
+  flex-shrink: 0;
 }
+.project-card-horizontal:hover .project-img { filter: brightness(1); }
 
-.project-card-horizontal:hover .project-img {
-  filter: brightness(1);
-}
-
+/* Content area fills remaining height */
 .project-info {
-  padding: 25px;
+  padding: 18px calc(24px + var(--skew)) 18px 20px;
   color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;            /* vertical centering */
+  gap: 6px;
 }
 
-/* === Project Title Link === */
 .project-info h3 {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  font-size: 1.28rem;
   color: var(--accent);
-  font-family: "Rajdhani", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 2px;
 }
-
 .project-link {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.25s ease;
+  color: var(--accent); text-decoration: none; font-weight: 600;
+  transition: transform 0.18s ease, text-shadow 0.18s ease, color 0.18s ease;
   display: inline-block;
 }
-
 .project-link:hover {
-  color: var(--accent-soft);
-  transform: translateY(-2px);
-  text-shadow: 0 0 8px rgba(102, 252, 241, 0.4);
+  color: var(--accent-soft); transform: translateY(-1px);
+  text-shadow: 0 0 8px rgba(102,252,241,0.35);
+}
+.project-info p {
+  color: var(--text-main);
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
 
-.project-info p {
-  margin-top: 5px;
-  color: var(--text-main);
-  font-size: 1rem;
-  line-height: 1.6;
+/* Outline that follows the trapezoid */
+.project-card-horizontal::after {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  clip-path: inherit; border: 1px solid rgba(193,154,107,0.1);
 }
 
 /* === Footer === */
 footer {
-  text-align: center;
-  padding: 20px;
-  background-color: var(--nav-bg);
-  color: var(--text-secondary);
-  margin-top: 60px;
-  border-top: 1px solid rgba(97, 97, 97, 0.3);
-  font-size: 0.9rem;
-  letter-spacing: 1px;
+  text-align: center; padding: 20px; background-color: var(--nav-bg);
+  color: var(--text-secondary); margin-top: 48px;
+  border-top: 1px solid rgba(97,97,97,0.3); font-size: 0.9rem; letter-spacing: 1px;
+}
+
+/* === Responsive Tweaks === */
+@media (max-width: 1100px) {
+  .navbar { padding: 16px 36px; }
+}
+@media (max-width: 900px) {
+  .project-card-horizontal { max-width: 96%; }
+}
+@media (max-width: 760px) {
+  :root {
+    --header-h: 64px;
+    --card-h-mobile: 210px;   /* <<< PROJECT CARD HEIGHT (mobile) */
+  }
+  body { padding-top: var(--header-h); }
+  .navbar { padding: 14px 18px; }
+
+  /* Flatten shape and stack on mobile for readability */
+  .project-card-horizontal {
+    clip-path: none;
+    flex-direction: column;
+    max-width: 640px;
+    min-height: var(--card-h-mobile, 210px); /* fallback if var not set */
+  }
+  .project-img {
+    width: 100%;
+    height: var(--card-h-mobile, 210px);     /* tie image to mobile height */
+    border-right: 0;
+    border-bottom: 2px solid rgba(193,154,107,0.15);
+  }
+  .project-info { padding: 16px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
 }
